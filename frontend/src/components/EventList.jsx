@@ -10,7 +10,7 @@ export default function EventList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/events")
+    fetch("https://louder-8wip.onrender.com/api/events")
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch((err) => console.error("❌ Error fetching events:", err));

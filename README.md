@@ -16,7 +16,7 @@ A modern frontend for displaying upcoming events and capturing user emails befor
 ## 🧱 Tech Stack
 
 - **Frontend**: React, Tailwind CSS, React Router
-- **Backend (example)**: Node.js / Express (for `/api/events` and `/api/collect-email`)
+- **Backend (example)**: Node.js / Express (for `/api/events` and `/signup`)
 
 ---
 

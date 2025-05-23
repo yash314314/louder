@@ -9,7 +9,7 @@ export default function ConfirmEmail() {
 
   const handleAgree = async () => {
     try {
-      await fetch("http://localhost:3000/signup", {
+      await fetch("https://louder-8wip.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, eventId }),

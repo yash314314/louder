@@ -4,7 +4,7 @@ const path = require('path');
 const cron = require('node-cron');
 
 const OUTPUT_FILE = path.join(__dirname, 'events.json');
-const SCRAPE_INTERVAL = '*/30 * * * *'; 
+const SCRAPE_INTERVAL = '*/10 * * * *'; 
 
 
 function readExistingEvents() {
@@ -45,9 +45,6 @@ async function runScraper() {
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(combinedEvents, null, 2));
     console.log(`📁 Results saved to ${OUTPUT_FILE}`);
-
-    console.log('🔍 Sample events:');
-    console.log(combinedEvents.slice(0, 3));
 
     return combinedEvents;
   } catch (err) {

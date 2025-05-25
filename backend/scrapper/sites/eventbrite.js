@@ -11,9 +11,7 @@ async function scrapeEventbrite() {
   await mainPage.goto(url, { waitUntil: 'networkidle2' });
 
   await autoScroll(mainPage);
-  await new Promise(resolve => setTimeout(resolve, 5000));
-
-  // Get all events (no slice)
+  await new Promise(resolve => setTimeout(resolve, 5000)); 
   const events = await mainPage.evaluate(() => {
     const cards = Array.from(document.querySelectorAll('.discover-vertical-event-card'));
     return cards.map(card => ({

@@ -12,7 +12,7 @@ const DATA_FILE = path.join(__dirname, "scrapper", "events.json");
 const email_file = path.join(__dirname, "email.json");
 const nodemailer = require("nodemailer"); 
 const cors = require("cors");
-
+const runScraper = require("./scrapper/scrape.js");
 const emailSchema = z.object({
   email: z.string().email(),
   emailId: z.string()
@@ -143,6 +143,15 @@ app.get("/confirm", (req, res) => {
   res.send("Thank you! Your email is confirmed.");
 });
 
+setInterval(async () => {
+  try {
+    console.log("⏳ Running scheduled scrape...");
+    const events = await runScraper();
+    console.log(`✅ Scraped ${events.length} events`);
+  } catch (err) {
+    console.error("❌ Scheduled scrape failed:", err.message);
+  }
+}, 10 * 60 * 1000);
 app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);
 });

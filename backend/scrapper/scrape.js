@@ -65,3 +65,8 @@ process.on('SIGINT', () => {
   console.log('\n🛑 Received SIGINT. Shutting down gracefully...');
   process.exit(0);
 });
+module.exports = {
+  runScraper,
+  readExistingEvents,
+  mergeEvents
+};
